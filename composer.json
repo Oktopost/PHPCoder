@@ -1,0 +1,19 @@
+{
+	"name": "oktopost/phpcoder",
+	"type": "lib",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Alexey Puchkov",
+			"email": "alexey@oktopost.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"require": {},
+	
+	"autoload": {
+		"psr-0": {
+			"PHPCoder": "src"
+		}
+	}
+}
