@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "dd8cbd1a2f6ff14eb24be20e8ef6b83d",
+    "content-hash": "6f0b1f27455ddd49e068aff347c69117",
+    "packages": [
+        {
+            "name": "oktopost/objection",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Oktopost/Objection.git",
+                "reference": "5843a4309566ee03514b5dfcf114bcfe2960ac88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Oktopost/Objection/zipball/5843a4309566ee03514b5dfcf114bcfe2960ac88",
+                "reference": "5843a4309566ee03514b5dfcf114bcfe2960ac88",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5-stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Objection": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexey Puchkov",
+                    "email": "alexey@oktopost.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Marina Sherstuk",
+                    "email": "marinashers@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Daniel Podrabinek",
+                    "email": "dpodrabinek@oktopost.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Objects in PHP",
+            "homepage": "https://github.com/Oktopost/Objection",
+            "time": "2016-10-18 13:38:25"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
