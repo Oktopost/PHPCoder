@@ -18,9 +18,9 @@ interface IToken
 	public function setRoot(IToken $token = null);
 
 	/**
-	 * @param IToken|null $child
+	 * @param IToken[] $child
 	 */
-	public function addChild(IToken $child = null);
+	public function addChild(IToken ...$child);
 
 	/**
 	 * @return IToken[]
@@ -54,7 +54,6 @@ interface IToken
 
 	/**
 	 * @param IStream $stream
-	 * @return mixed
 	 */
 	public function write(IStream $stream);
 }

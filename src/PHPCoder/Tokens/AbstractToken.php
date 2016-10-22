@@ -38,11 +38,11 @@ abstract class AbstractToken implements IToken
 	
 
 	/**
-	 * @param IToken|null $child
+	 * @param IToken[] $child
 	 */
-	public function addChild(IToken $child = null)
+	public function addChild(IToken ...$child)
 	{
-		$this->children[] = $child;
+		$this->children = array_merge($this->children, $child);
 	}
 	
 	/**
@@ -115,7 +115,6 @@ abstract class AbstractToken implements IToken
 
 	/**
 	 * @param IStream $stream
-	 * @return mixed
 	 */
 	public abstract function write(IStream $stream);
 }

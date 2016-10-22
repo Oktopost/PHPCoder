@@ -3,12 +3,12 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Enum\AccessLevel;
+use PHPCoder\Base\Token\IFunction;
 use PHPCoder\Base\Compiler\IStream;
 
 
-class FunctionToken extends AbstractToken
+abstract class AbstractFunctionToken extends AbstractToken implements IFunction
 {
-	private $accessLevel = AccessLevel::PRIVATE_ACCESS;
 	private $name;
 	
 	/** @var ParameterToken[] */
@@ -17,21 +17,6 @@ class FunctionToken extends AbstractToken
 	
 	private $lastParameterIndex = 0;
 
-	
-	/**
-	 * @param IStream $stream
-	 */
-	private function writeParams(IStream $stream)
-	{
-		$stream->write('(');
-		
-		foreach ($this->params as $param)
-		{
-			$param->write($stream);
-		}
-		
-		$stream->write(')');
-	}
 
 	/**
 	 * @param string $name
@@ -74,35 +59,33 @@ class FunctionToken extends AbstractToken
 		}
 	}
 	
+	
+	/**
+	 * @param IStream $stream
+	 */
+	protected function writeParams(IStream $stream)
+	{
+		$this->fillParameterNames();
+		
+		$stream->write('(');
+		
+		foreach ($this->params as $param)
+		{
+			$param->write($stream);
+		}
+		
+		$stream->write(')');
+	}
+	
 
 	/**
 	 * @param string|bool $name
-	 * @param string $level
 	 * @param ParameterToken[] $params
 	 */
-	public function __construct($name = false, $level = AccessLevel::PRIVATE_ACCESS, array $params = [])
+	public function __construct($name = false, array $params = [])
 	{
 		$this->name = $name;
-		$this->accessLevel = $level;
 		$this->params = $params;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getAccessLevel()
-	{
-		return $this->accessLevel;
-	}
-
-	/**
-	 * @param string $accessLevel
-	 * @return static
-	 */
-	public function setAccessLevel($accessLevel)
-	{
-		$this->accessLevel = $accessLevel;
-		return $this;
 	}
 
 	/**
@@ -140,29 +123,12 @@ class FunctionToken extends AbstractToken
 		$this->params = array_merge($this->params, $parameterToken);
 		return $this;
 	}
-
 	
-	/**
-	 * @param IStream $stream
-	 * @return mixed
-	 */
 	public function write(IStream $stream)
 	{
-		if (!$this->name)
+		if (!$this->getName())
 			throw new \Exception('Function method must be set');
-		
+
 		$this->fillParameterNames();
-		
-		$stream
-			->indent()
-			->write($this->accessLevel)
-			->write(' function ')
-			->write($this->name);
-		
-		$this->writeParams($stream);
-		
-		$stream->newLine()->writeIndentLine('{');
-		$this->writeChildrenIndented($stream);
-		$stream->writeIndentLine('}')->newLine();
 	}
 }

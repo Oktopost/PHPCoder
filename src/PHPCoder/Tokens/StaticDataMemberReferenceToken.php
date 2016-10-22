@@ -2,14 +2,28 @@
 namespace PHPCoder\Tokens;
 
 
+use PHPCoder\Base\Token\IVariable;
 use PHPCoder\Base\Compiler\IStream;
 
 
-class DataMemberReferenceToken extends AbstractVariableReferenceToken
+class StaticDataMemberReferenceToken extends AbstractVariableReferenceToken
 {
+	/** @var ClassNameReferenceToken */
+	private $class;
+	
+	
+	/**
+	 * @param ClassNameReferenceToken $class
+	 * @param IVariable $variable
+	 */
+	public function __construct(ClassNameReferenceToken $class, IVariable $variable = null)
+	{
+		parent::__construct($variable);
+	}
+	
+	
 	/**
 	 * @param IStream $stream
-	 * @return mixed
 	 */
 	public function write(IStream $stream)
 	{

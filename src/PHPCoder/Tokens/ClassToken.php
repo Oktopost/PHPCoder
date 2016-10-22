@@ -9,10 +9,31 @@ class ClassToken extends AbstractToken
 {
 	private $name;
 	
+	/** @var ClassNameReferenceToken[] */
 	private $extends = [];
+	
+	/** @var ClassNameReferenceToken[] */
 	private $implements = [];
 
 
+	/**
+	 * @param ClassNameReferenceToken[] $target
+	 * @param IStream $stream
+	 */
+	private function writeClassNames(array $target, IStream $stream)
+	{
+		$isFirst = false;
+			
+		foreach ($this->extends as $className)
+		{
+			if ($isFirst) $isFirst = false;
+			else $stream->write(', ');
+			
+			$className->write($stream);
+		}
+	}
+
+	
 	/**
 	 * @param string $name
 	 */
@@ -31,7 +52,7 @@ class ClassToken extends AbstractToken
 	}
 
 	/**
-	 * @param string|array $className
+	 * @param ClassNameReferenceToken|ClassNameReferenceToken[] $className
 	 * @return static
 	 */
 	public function extend($className)
@@ -44,7 +65,7 @@ class ClassToken extends AbstractToken
 	}
 
 	/**
-	 * @param string|array $interfaceName
+	 * @param ClassNameReferenceToken|ClassNameReferenceToken[] $interfaceName
 	 * @return static
 	 */
 	public function implement($interfaceName)
@@ -52,7 +73,7 @@ class ClassToken extends AbstractToken
 		if (is_string($interfaceName))
 			return $this->implement([$interfaceName]);
 		
-		$this->implements = array_merge($this->extends, $interfaceName);
+		$this->implements = array_merge($this->implements, $interfaceName);
 		return $this;
 	}
 
@@ -80,16 +101,14 @@ class ClassToken extends AbstractToken
 		
 		if ($this->extends)
 		{
-			$stream
-				->write(' extends ')
-				->writeArray(', ', $this->extends);
+			$stream->write(' extends ');
+			$this->writeClassNames($this->extends, $stream);
 		}
 		
 		if ($this->implements)
 		{
-			$stream
-				->write(' implements ')
-				->writeArray(', ', $this->implements);
+			$stream->write(' implements ');
+			$this->writeClassNames($this->implements, $stream);
 		}
 		
 		$stream->writeIndentLine("{");

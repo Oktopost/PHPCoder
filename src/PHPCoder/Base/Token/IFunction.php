@@ -2,7 +2,7 @@
 namespace PHPCoder\Base\Token;
 
 
-interface IVariable extends IToken
+interface IFunction extends IToken
 {
 	/**
 	 * @return string

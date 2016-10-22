@@ -2,8 +2,8 @@
 namespace PHPCoder\Tokens;
 
 
-use PHPCoder\Base\Compiler\IStream;
 use PHPCoder\Base\Token\IVariable;
+use PHPCoder\Base\Compiler\IStream;
 
 
 class ParameterToken extends AbstractToken implements IVariable
@@ -11,7 +11,8 @@ class ParameterToken extends AbstractToken implements IVariable
 	private $name = false;
 	private $type = false;
 	
-	private $defaultValue;
+	/** @var ConstToken|null */
+	private $defaultValue = null;
 
 
 	/**
@@ -40,32 +41,7 @@ class ParameterToken extends AbstractToken implements IVariable
 			return;
 		
 		$stream->write(' = ');
-		
-		if ($this->defaultValue === false)
-		{
-			$stream->write('false');
-		}
-		else if ($this->defaultValue === true)
-		{
-			$stream->write('true');
-		}
-		else if ($this->defaultValue === [])
-		{
-			$stream->write('[]');
-		}
-		else if ($this->defaultValue === null)
-		{
-			$stream->write('null');
-		}
-		else if (is_string($this->defaultValue))
-		{
-			$stream->write("'{$this->defaultValue}'");
-		}
-		// Int/Double.
-		else 
-		{
-			$stream->write($this->defaultValue);
-		}
+		$this->defaultValue->write($stream);
 	}
 	
 	
@@ -86,7 +62,7 @@ class ParameterToken extends AbstractToken implements IVariable
 	 */
 	public function setDefaultValue($value)
 	{
-		$this->defaultValue = $value;
+		$this->defaultValue = ($value ? new ConstToken($value) : null);
 		return $this;
 	}
 
@@ -130,7 +106,6 @@ class ParameterToken extends AbstractToken implements IVariable
 	
 	/**
 	 * @param IStream $stream
-	 * @return mixed
 	 */
 	public function write(IStream $stream)
 	{

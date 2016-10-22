@@ -34,7 +34,6 @@ class TextToken extends AbstractToken
 
 	/**
 	 * @param IStream $stream
-	 * @return mixed
 	 */
 	public function write(IStream $stream)
 	{
