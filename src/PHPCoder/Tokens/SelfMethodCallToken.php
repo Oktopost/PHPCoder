@@ -12,6 +12,6 @@ class SelfMethodCallToken extends AbstractFunctionCallToken
 	 */
 	protected function writeFunctionReference(IStream $stream)
 	{
-		$stream->write('parent::' . $this->getFunction()->getName());
+		$stream->write('self::' . $this->getFunction()->getName());
 	}
 }

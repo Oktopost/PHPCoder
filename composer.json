@@ -8,9 +8,9 @@
 			"email": "alexey@oktopost.com"
 		}
 	],
-	"minimum-stability": "stable",
+	"minimum-stability": "dev",
 	"require": {
-		"oktopost/objection": "^1.0"
+		"oktopost/objection": "^1"
 	},
 	
 	"autoload": {

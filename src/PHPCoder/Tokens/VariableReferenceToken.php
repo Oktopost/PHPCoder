@@ -12,9 +12,9 @@ class VariableReferenceToken extends AbstractVariableReferenceToken
 	 */
 	public function write(IStream $stream)
 	{
-		if (!$this->getFunction())
+		if (!$this->getVariable())
 			throw new \Exception('Variable was not set for VariableReferenceToken!');
 		
-		$stream->write('$' . $this->getFunction()->getName());
+		$stream->write('$' . $this->getVariable()->getName());
 	}
 }
