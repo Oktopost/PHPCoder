@@ -12,6 +12,6 @@ class ThisMethodCallToken extends AbstractFunctionCallToken
 	 */
 	protected function writeFunctionReference(IStream $stream)
 	{
-		$stream->write('$this->' . $this->getFunction()->getName());
+		$stream->write('$this->' . $this->getName());
 	}
 }

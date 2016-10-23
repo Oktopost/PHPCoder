@@ -12,9 +12,6 @@ class SelfVariableReferenceToken extends AbstractVariableReferenceToken
 	 */
 	public function write(IStream $stream)
 	{
-		if (!$this->getVariable())
-			throw new \Exception('Variable was not set for VariableReferenceToken!');
-		
-		$stream->write('self::$' . $this->getVariable()->getName());
+		$stream->write('self::$' . $this->getName());
 	}
 }

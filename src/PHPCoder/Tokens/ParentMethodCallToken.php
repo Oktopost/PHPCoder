@@ -12,6 +12,6 @@ class ParentMethodCallToken extends AbstractFunctionCallToken
 	 */
 	protected function writeFunctionReference(IStream $stream)
 	{
-		$stream->write('parent::' . $this->getFunction()->getName());
+		$stream->write('parent::' . $this->getName());
 	}
 }

@@ -28,6 +28,6 @@ class StaticMethodCallToken extends AbstractFunctionCallToken
 	protected function writeFunctionReference(IStream $stream)
 	{
 		$this->class->write($stream);
-		$stream->write('::' . $this->getFunction()->getName());
+		$stream->write('::' . $this->getName());
 	}
 }

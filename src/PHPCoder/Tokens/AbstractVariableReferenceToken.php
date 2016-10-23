@@ -21,7 +21,7 @@ abstract class AbstractVariableReferenceToken extends AbstractToken
 
 
 	/**
-	 * @return IVariable
+	 * @return string
 	 */
 	public function getName()
 	{

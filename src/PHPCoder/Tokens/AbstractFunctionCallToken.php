@@ -4,6 +4,7 @@ namespace PHPCoder\Tokens;
 
 use PHPCoder\Base\Compiler\IStream;
 use PHPCoder\Base\Token\IFunction;
+use PHPCoder\Base\Token\IToken;
 
 
 abstract class AbstractFunctionCallToken extends AbstractToken
@@ -28,7 +29,7 @@ abstract class AbstractFunctionCallToken extends AbstractToken
 
 
 	/**
-	 * @return IFunction
+	 * @return string
 	 */
 	public function getName()
 	{
@@ -42,6 +43,16 @@ abstract class AbstractFunctionCallToken extends AbstractToken
 	public function setFunction($function)
 	{
 		$this->function = $function;
+		return $this;
+	}
+
+	/**
+	 * @param IToken $token
+	 * @return static
+	 */
+	public function addParameter(IToken $token)
+	{
+		$this->addChild($token);
 		return $this;
 	}
 	
