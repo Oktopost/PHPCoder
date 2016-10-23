@@ -1,5 +1,5 @@
 <?php
-namespace PHPCoder\Tokens;
+namespace PHPCoder\Tokens\Generic;
 
 
 use PHPCoder\Base\Compiler\IStream;

@@ -2,9 +2,6 @@
 namespace PHPCoder\Tokens\Generic;
 
 
-use PHPCoder\Tokens\Generic\TextToken;
-
-
 /**
  * @package PHPCoder\Tokens\Generic
  */
@@ -16,5 +13,18 @@ class IdentifierToken extends TextToken
 	public function __construct($name)
 	{
 		parent::__construct($name, false);
+	}
+	
+	
+	/**
+	 * @param IdentifierToken|string $value
+	 * @return IdentifierToken
+	 */
+	public static function identify($value)
+	{
+		if (!($value instanceof IdentifierToken))
+			return new IdentifierToken($value);
+		
+		return $value;
 	}
 }

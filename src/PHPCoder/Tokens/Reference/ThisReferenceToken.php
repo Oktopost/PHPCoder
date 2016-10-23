@@ -3,7 +3,7 @@ namespace PHPCoder\Tokens\Reference;
 
 
 use PHPCoder\Base\Token\IToken;
-use PHPCoder\Tokens\ThisToken;
+use PHPCoder\Tokens\Generic\ThisToken;
 
 
 class ThisReferenceToken extends AbstractReferenceToken 
