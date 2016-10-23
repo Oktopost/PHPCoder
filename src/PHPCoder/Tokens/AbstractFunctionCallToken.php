@@ -8,7 +8,7 @@ use PHPCoder\Base\Token\IFunction;
 
 abstract class AbstractFunctionCallToken extends AbstractToken
 {
-	/** @var IFunction */
+	/** @var IFunction|string */
 	private $function;
 
 
@@ -19,9 +19,9 @@ abstract class AbstractFunctionCallToken extends AbstractToken
 	
 
 	/**
-	 * @param IFunction $function
+	 * @param IFunction|string $function
 	 */
-	public function __construct(IFunction $function = null)
+	public function __construct($function = null)
 	{
 		$this->function = $function;
 	}
@@ -30,13 +30,13 @@ abstract class AbstractFunctionCallToken extends AbstractToken
 	/**
 	 * @return IFunction
 	 */
-	public function getFunction()
+	public function getName()
 	{
-		return $this->function;
+		return (is_string($this->function) ? $this->function : $this->function->getName());
 	}
-
+	
 	/**
-	 * @param IFunction $function
+	 * @param IFunction|string $function
 	 * @return static
 	 */
 	public function setFunction($function)

@@ -7,14 +7,14 @@ use PHPCoder\Base\Token\IVariable;
 
 abstract class AbstractVariableReferenceToken extends AbstractToken
 {
-	/** @var IVariable */
+	/** @var IVariable|string */
 	private $variable;
 
 
 	/**
-	 * @param IVariable|null $variable
+	 * @param IVariable|string|null $variable
 	 */
-	public function __construct(IVariable $variable = null)
+	public function __construct($variable = null)
 	{
 		$this->variable = $variable;
 	}
@@ -23,13 +23,13 @@ abstract class AbstractVariableReferenceToken extends AbstractToken
 	/**
 	 * @return IVariable
 	 */
-	public function getVariable()
+	public function getName()
 	{
-		return $this->variable;
+		return (is_string($this->variable) ? $this->variable : $this->variable->getName());
 	}
 
 	/**
-	 * @param IVariable $variable
+	 * @param IVariable|string $variable
 	 * @return static
 	 */
 	public function setVariable($variable)

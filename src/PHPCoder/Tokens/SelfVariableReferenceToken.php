@@ -5,7 +5,7 @@ namespace PHPCoder\Tokens;
 use PHPCoder\Base\Compiler\IStream;
 
 
-class SelfDataMemberReferenceToken extends AbstractVariableReferenceToken
+class SelfVariableReferenceToken extends AbstractVariableReferenceToken
 {
 	/**
 	 * @param IStream $stream

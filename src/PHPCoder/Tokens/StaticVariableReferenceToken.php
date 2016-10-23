@@ -6,7 +6,7 @@ use PHPCoder\Base\Token\IVariable;
 use PHPCoder\Base\Compiler\IStream;
 
 
-class StaticDataMemberReferenceToken extends AbstractVariableReferenceToken
+class StaticVariableReferenceToken extends AbstractVariableReferenceToken
 {
 	/** @var ClassNameReferenceToken */
 	private $class;

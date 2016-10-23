@@ -5,7 +5,7 @@ namespace PHPCoder\Tokens;
 use PHPCoder\Base\Compiler\IStream;
 
 
-class MethodCallToken extends AbstractFunctionCallToken
+class ThisMethodCallToken extends AbstractFunctionCallToken
 {
 	/**
 	 * @param IStream $stream
