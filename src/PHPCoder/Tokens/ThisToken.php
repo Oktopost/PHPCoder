@@ -1,15 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: namp
- * Date: 10/23/16
- * Time: 8:16 AM
- */
-
 namespace PHPCoder\Tokens;
 
 
-class ThisToken
-{
+use PHPCoder\Base\Compiler\IStream;
 
+
+class ThisToken extends AbstractToken
+{
+	/**
+	 * @param IStream $stream
+	 */
+	public function write(IStream $stream)
+	{
+		$stream->write('$this');
+	}
 }
