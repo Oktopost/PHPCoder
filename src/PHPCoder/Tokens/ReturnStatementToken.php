@@ -2,17 +2,13 @@
 namespace PHPCoder\Tokens;
 
 
-use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Base\Token\IToken;
 
 
-class ReturnStatementToken extends AbstractToken
+class ReturnStatementToken extends StatementToken 
 {
-	/**
-	 * @param IStream $stream
-	 */
-	public function write(IStream $stream)
+	public function __construct(IToken ...$children)
 	{
-		$stream->write('return ');
-		$this->writeChildren($stream);
+		parent::__construct(new TextToken('return '), ...$children);
 	}
 }

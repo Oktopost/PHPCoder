@@ -3,6 +3,7 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractVariableReferenceToken;
 
 
 class SelfVariableReferenceToken extends AbstractVariableReferenceToken

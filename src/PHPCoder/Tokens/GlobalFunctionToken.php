@@ -4,6 +4,7 @@ namespace PHPCoder\Tokens;
 
 use PHPCoder\Base\Token\IFunction;
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractFunctionToken;
 
 
 class GlobalFunctionToken extends AbstractFunctionToken implements IFunction

@@ -3,15 +3,16 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractToken;
 
 
-class VariableReferenceToken extends AbstractVariableReferenceToken
+class StaticToken extends AbstractToken 
 {
 	/**
 	 * @param IStream $stream
 	 */
 	public function write(IStream $stream)
 	{
-		$stream->write('$' . $this->getName());
+		$stream->write('static');
 	}
 }

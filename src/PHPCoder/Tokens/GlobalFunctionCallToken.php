@@ -3,6 +3,7 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractFunctionCallToken;
 
 
 class GlobalFunctionCallToken extends AbstractFunctionCallToken

@@ -1,5 +1,5 @@
 <?php
-namespace PHPCoder\Tokens;
+namespace PHPCoder\Tokens\Base;
 
 
 use PHPCoder\Base\Token\IToken;
@@ -35,22 +35,26 @@ abstract class AbstractToken implements IToken
 			$child->write($stream);
 		}
 	}
-	
+
 
 	/**
 	 * @param IToken[] $child
+	 * @return static
 	 */
 	public function addChild(IToken ...$child)
 	{
 		$this->children = array_merge($this->children, $child);
+		return $this;
 	}
 	
 	/**
 	 * @param IToken $token
+	 * @return static
 	 */
 	public function setRoot(IToken $token = null)
 	{
 		$this->root = $token;
+		return $this;
 	}
 	
 	/**
@@ -112,9 +116,13 @@ abstract class AbstractToken implements IToken
 	{
 		return (bool)$this->root;
 	}
+	
 
 	/**
 	 * @param IStream $stream
 	 */
-	public abstract function write(IStream $stream);
+	public function write(IStream $stream)
+	{
+		$this->writeChildren($stream);
+	}
 }

@@ -3,6 +3,7 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractToken;
 
 
 class CastToken extends AbstractToken
@@ -11,24 +12,16 @@ class CastToken extends AbstractToken
 
 
 	/**
-	 * @param mixed $value
+	 * @param string $to
 	 */
 	public function __construct($to)
 	{
-		$this->setTarget($value);
+		$this->setTarget($to);
 	}
 
-
-	/**
-	 * @return mixed
-	 */
-	public function getTarget()
-	{
-		return $this->target;
-	}
 	
 	/**
-	 * @param mixed $target
+	 * @param string $target
 	 * @return static
 	 */
 	public function setTarget($target)

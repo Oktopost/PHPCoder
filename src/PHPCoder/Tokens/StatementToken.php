@@ -4,6 +4,7 @@ namespace PHPCoder\Tokens;
 
 use PHPCoder\Base\Token\IToken;
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractToken;
 
 
 class StatementToken extends AbstractToken
@@ -16,6 +17,14 @@ class StatementToken extends AbstractToken
 		$this->addChild(...$children);
 	}
 
+	/**
+	 * @param string $text
+	 * @return static
+	 */
+	public function addText($text)
+	{
+		return $this->addChild(new TextToken($text));
+	}
 
 	/**
 	 * @param IStream $stream

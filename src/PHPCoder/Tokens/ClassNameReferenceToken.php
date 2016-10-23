@@ -3,6 +3,7 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractToken;
 
 
 class ClassNameReferenceToken extends AbstractToken

@@ -14,11 +14,13 @@ interface IToken
 
 	/**
 	 * @param IToken $token
+	 * @return static
 	 */
 	public function setRoot(IToken $token = null);
 
 	/**
 	 * @param IToken[] $child
+	 * @return static
 	 */
 	public function addChild(IToken ...$child);
 

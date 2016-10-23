@@ -4,6 +4,7 @@ namespace PHPCoder\Tokens;
 
 use PHPCoder\Base\Token\IToken;
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractToken;
 
 
 class TextToken extends AbstractToken

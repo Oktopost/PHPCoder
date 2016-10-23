@@ -1,10 +1,10 @@
 <?php
-namespace PHPCoder\Tokens;
+namespace PHPCoder\Tokens\Base;
 
 
-use PHPCoder\Base\Compiler\IStream;
-use PHPCoder\Base\Token\IFunction;
 use PHPCoder\Base\Token\IToken;
+use PHPCoder\Base\Token\IFunction;
+use PHPCoder\Base\Compiler\IStream;
 
 
 abstract class AbstractFunctionCallToken extends AbstractToken

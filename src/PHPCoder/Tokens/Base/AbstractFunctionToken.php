@@ -1,10 +1,10 @@
 <?php
-namespace PHPCoder\Tokens;
+namespace PHPCoder\Tokens\Base;
 
 
-use PHPCoder\Enum\AccessLevel;
 use PHPCoder\Base\Token\IFunction;
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\ParameterToken;
 
 
 abstract class AbstractFunctionToken extends AbstractToken implements IFunction

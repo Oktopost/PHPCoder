@@ -5,6 +5,7 @@ namespace PHPCoder\Tokens;
 use PHPCoder\Enum\AccessLevel;
 use PHPCoder\Base\Token\IFunction;
 use PHPCoder\Base\Compiler\IStream;
+use PHPCoder\Tokens\Base\AbstractFunctionToken;
 
 
 class MethodToken extends AbstractFunctionToken implements IFunction
