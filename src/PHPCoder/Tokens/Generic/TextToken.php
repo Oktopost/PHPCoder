@@ -1,5 +1,5 @@
 <?php
-namespace PHPCoder\Tokens;
+namespace PHPCoder\Tokens\Generic;
 
 
 use PHPCoder\Base\Token\IToken;
@@ -23,11 +23,12 @@ class TextToken extends AbstractToken
 		$this->indented = $indented;
 	}
 
-	
+
 	/**
-	 * @param IToken|null $child
+	 * @param IToken[] $child
+	 * @return static
 	 */
-	public function addChild(IToken $child = null)
+	public function addChild(IToken ...$child)
 	{
 		throw new \Exception('Text token can not have child tokens!');
 	}

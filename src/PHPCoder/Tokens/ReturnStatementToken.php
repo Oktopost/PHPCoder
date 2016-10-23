@@ -3,6 +3,7 @@ namespace PHPCoder\Tokens;
 
 
 use PHPCoder\Base\Token\IToken;
+use PHPCoder\Tokens\Generic\TextToken;
 
 
 class ReturnStatementToken extends StatementToken 

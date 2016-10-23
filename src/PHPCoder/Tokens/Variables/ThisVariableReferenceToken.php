@@ -2,7 +2,7 @@
 namespace PHPCoder\Tokens\Variables;
 
 
-use PHPCoder\Tokens\TextToken;
+use PHPCoder\Tokens\Generic\TextToken;
 use PHPCoder\Tokens\Base\AbstractToken;
 use PHPCoder\Tokens\Reference\ThisReferenceToken;
 

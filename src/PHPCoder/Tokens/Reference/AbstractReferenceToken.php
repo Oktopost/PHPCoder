@@ -5,7 +5,7 @@ namespace PHPCoder\Tokens\Reference;
 use PHPCoder\Base\Token\IToken;
 use PHPCoder\Base\Compiler\IStream;
 use PHPCoder\Tokens\Base\AbstractToken;
-use PHPCoder\Tokens\TextToken;
+use PHPCoder\Tokens\Generic\TextToken;
 
 
 abstract class AbstractReferenceToken extends AbstractToken 
